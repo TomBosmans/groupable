@@ -1,0 +1,4 @@
+module Groupable
+  class Engine < ::Rails::Engine
+  end
+end
