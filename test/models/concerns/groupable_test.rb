@@ -9,7 +9,7 @@ describe Groupable do
 
   describe '.create' do
     it 'responds to create' do
-     assert  Book.respond_to? :create
+      assert Book.respond_to? :create
     end
 
     it 'does not need a group' do

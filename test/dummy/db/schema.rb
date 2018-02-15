@@ -10,23 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_02_15_190118) do
-
-  create_table "group_items", force: :cascade do |t|
-    t.integer "group_id"
-    t.string "groupable_type"
-    t.integer "groupable_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["group_id"], name: "index_group_items_on_group_id"
-    t.index ["groupable_type", "groupable_id"], name: "index_group_items_on_groupable_type_and_groupable_id"
+ActiveRecord::Schema.define(version: 20_180_215_190_118) do
+  create_table 'group_items', force: :cascade do |t|
+    t.integer 'group_id'
+    t.string 'groupable_type'
+    t.integer 'groupable_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['group_id'], name: 'index_group_items_on_group_id'
+    t.index %w[groupable_type groupable_id], name: 'index_group_items_on_groupable_type_and_groupable_id'
   end
 
-  create_table "groups", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'groups', force: :cascade do |t|
+    t.string 'name'
+    t.string 'description'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
-
 end

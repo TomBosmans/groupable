@@ -40,11 +40,11 @@ class Group < ApplicationRecord
 
   def respond_to?(method, include_private = false)
     method.to_s == items_alias ||
-    super
+      super
   end
 
   def respond_to_missing?(method, include_private = false)
     method.to_s == items_alias ||
-    super
+      super
   end
 end
