@@ -8,10 +8,10 @@ Gem::Specification.new do |s|
   s.name        = "groupable"
   s.version     = Groupable::VERSION
   s.authors     = ["TomBosmans"]
-  s.email       = ["t.bosse@hotmail.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Groupable."
-  s.description = "TODO: Description of Groupable."
+  s.email       = ["tom.94.bosse@gmail.com"]
+  s.homepage    = "https://github.com/TomBosmans/groupable"
+  s.summary     = "One group to group them all"
+  s.description = "This gem is logic extracted from my Magnus project."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
