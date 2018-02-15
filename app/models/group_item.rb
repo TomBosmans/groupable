@@ -10,6 +10,8 @@
 #  updated_at     :datetime         not null
 #
 
+require 'concerns/groupable'
+
 class GroupItem < ApplicationRecord
   belongs_to :group
   belongs_to :groupable, polymorphic: true, dependent: :destroy
