@@ -9,8 +9,6 @@
 #  updated_at  :datetime         not null
 #
 
-require 'concerns/groupable'
-
 class Group < ApplicationRecord
   include Groupable
   has_many :group_items, dependent: :destroy
