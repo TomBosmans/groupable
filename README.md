@@ -16,6 +16,7 @@ $ rails db:migrate
 ```
 
 ## Usage
+### How you should use it
 ```ruby
 class Book < ApplicationRecord
   include Groupable
@@ -32,7 +33,7 @@ library.items # => [#<Book id: 1>, #<Book id: 2>, #<Book id: 3>]
 there_and_back_again.group # => #<Group id: 1, name: "Books", description: "group of books", ...">
 ```
 
-### Fun stuff
+### How you also can use it
 You can also use the group name as an alias for items, in this case 'books'. Altough I consider this more a gimmick, it might be nice to use.
 ```ruby
 library.books # => [#<Book id: 1>, #<Book id: 2>, #<Book id: 3>]
@@ -54,16 +55,16 @@ library.genres
 # => [#<Group id: 2, name: "Books", description: "Fantasy books", ...>, #<Group id: 3, name: "Books", description: "Scifi books", ...>]
 
 fantasy.books # [#<Book id: 1>, #<Book id: 2>, #<Book id: 3>]
-scifi .books # [#<Book id: 4>]
+scifi.books # [#<Book id: 4>]
 ```
-So the structure of library is:
+So the structure of library in this case is:
 * Library (Group)
-** fantasy (Group)
-*** there and back again (Book)
-*** the silmarillion (Book)
-*** the lord of the rings (Book)
-** scifi (Group)
-*** burning of prospero (Book)
+  * fantasy (Group)
+    * there and back again (Book)
+    * the silmarillion (Book)
+    * the lord of the rings (Book)
+  * scifi (Group)
+    * burning of prospero (Book)
 
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
