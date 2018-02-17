@@ -1,5 +1,5 @@
 # Groupable
-When working on my hobby project [Magnus](https://github.com/TomBosmans/magnus) I needed to group articles. While making my article_group I realised that every time I made this kind of groups they always where the same. They had a title and a description and had multiple items. Groupable is my attempt to make this a bit more dry.
+When working on my hobby project [Magnus](https://github.com/TomBosmans/magnus) I needed to group articles. While making my article_group model, I realised that every time I made these models they always where the same. They had a title and a description and had multiple items. Groupable is my attempt to make this a bit more dry.
 
 ## Installation
 Add this line to your application's Gemfile:
