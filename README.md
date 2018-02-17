@@ -5,7 +5,7 @@ When working on my hobby project [Magnus](https://github.com/TomBosmans/magnus) 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'groupable', git: 'https://github.com/TomBosmans/groupable.git', tag: '1.0'
+gem 'groupable', git: 'https://github.com/TomBosmans/groupable.git', tag: 'v0.01'
 ```
 
 And then execute:
@@ -58,13 +58,13 @@ fantasy.books # [#<Book id: 1>, #<Book id: 2>, #<Book id: 3>]
 scifi.books # [#<Book id: 4>]
 ```
 So the structure of library in this case is:
-* :file_folder: Library
+* :file_folder: library
   * :file_folder: fantasy
-    * :closed_book: there and back again
-    *  :closed_book: the silmarillion
-    *  :closed_book: the lord of the rings
+    * :closed_book: there_and_back_again
+    *  :closed_book: the_silmarillion
+    *  :closed_book: the_lord_of_the_rings
   * :file_folder: scifi
-    *  :closed_book: burning of prospero
+    *  :closed_book: burning_of_prospero
 
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
