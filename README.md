@@ -58,13 +58,13 @@ fantasy.books # [#<Book id: 1>, #<Book id: 2>, #<Book id: 3>]
 scifi.books # [#<Book id: 4>]
 ```
 So the structure of library in this case is:
-* Library (Group)
-  * fantasy (Group)
-    * there and back again (Book)
-    * the silmarillion (Book)
-    * the lord of the rings (Book)
-  * scifi (Group)
-    * burning of prospero (Book)
+* :file_folder: Library
+  * :file_folder: fantasy
+    * :closed_book: there and back again
+    *  :closed_book: the silmarillion
+    *  :closed_book: the lord of the rings
+  * :file_folder: scifi
+    *  :closed_book: burning of prospero
 
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
