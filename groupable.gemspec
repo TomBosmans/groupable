@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.name        = 'groupable'
   s.version     = Groupable::VERSION
   s.authors     = ['TomBosmans']
-  s.email       = ['tom.94.bosse@gmail.com']
+  s.email       = ['tom.94.bosmans@gmail.com']
   s.homepage    = 'https://github.com/TomBosmans/groupable'
   s.summary     = 'One group to group them all'
   s.description = 'This gem is logic extracted from my Magnus project.'
