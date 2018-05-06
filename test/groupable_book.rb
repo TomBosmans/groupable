@@ -1,8 +1,6 @@
 # This will setup everything you need to write isolated tests with groupable items.
 # It will create a tmp db table before the test runs and drop it when it's done.
 
-require 'concerns/groupable'
-
 module GroupableBook
   extend ActiveSupport::Concern
 
