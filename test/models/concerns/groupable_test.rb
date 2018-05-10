@@ -102,6 +102,15 @@ describe Groupable do
       library_2 = FactoryBot.create(:group, name: 'movies')
       assert Book.where_group_id(library_2.name).empty?
     end
+
+    it 'works with Group aswell' do
+      group = FactoryBot.create(:group, name: 'group of groups')
+      3.times { FactoryBot.create(:group, group: group) }
+
+      expected_ids = group.items.pluck(:id).sort
+      assert_equal expected_ids,
+                   Group.where_group_name('group of groups').pluck(:id).sort
+    end
   end
 
   describe '#group' do
