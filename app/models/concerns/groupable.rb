@@ -10,7 +10,16 @@ module Groupable
     end
 
     scope :where_group_name, ->(name) do
-      joins(:group_item, :group).where(group_items: { groups: { name: name } })
+      joins(:group_item, :group).where("#{group_table}" => { name: name })
+    end
+
+    private
+
+    # Group is also groupable. ActiveRecord gets confused with the join so we
+    # need to fix it ourselves.
+    def self.group_table
+      return 'groups_groups' if self == Group
+      'groups'
     end
   end
 end
