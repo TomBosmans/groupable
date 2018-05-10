@@ -12,8 +12,15 @@
 
 class GroupItem < ApplicationRecord
   belongs_to :group
-  belongs_to :groupable, polymorphic: true, dependent: :destroy
 
-  validates :group_id, presence: true
-  validates :groupable_id, presence: true
+  belongs_to :groupable,
+             polymorphic: true,
+             dependent: :destroy
+
+  validates :group_id,
+            presence: true
+
+  validates :groupable_id,
+            presence: true,
+            uniqueness: { scope: :groupable_type }
 end

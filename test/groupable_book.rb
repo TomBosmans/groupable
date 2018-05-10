@@ -10,7 +10,10 @@ module GroupableBook
     let(:book_2) { Book.create(group: library) }
 
     before(:all) { create_table }
-    after(:all) { drop_table }
+    after(:all) do
+      Book.destroy_all
+      drop_table
+    end
   end
 end
 
