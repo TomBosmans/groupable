@@ -18,7 +18,7 @@ module Groupable
     # Group is also groupable. ActiveRecord gets confused with the join so we
     # need to fix it ourselves.
     def self.group_table
-      return 'groups_groups' if self == Group
+      return 'groups_groups' if table_name == 'groups'
       'groups'
     end
   end
