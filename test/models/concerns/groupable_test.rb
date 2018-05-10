@@ -24,13 +24,15 @@ describe Groupable do
     end
   end
 
-  describe '.where_group' do
+  describe '.where_group_id' do
     # Need to call book_1, book_2 before the query, else they are not created.
     let(:book_ids) { [book_1.id, book_2.id] }
-    let(:library_book_ids) { Book.order(:id).where_group(library.id).pluck(:id) }
+    let(:library_book_ids) do
+      Book.order(:id).where_group_id(library.id).pluck(:id)
+    end
 
-    it 'responds to where_group' do
-      assert Book.respond_to? :where_group
+    it 'responds to where_group_id' do
+      assert Book.respond_to? :where_group_id
     end
 
     it 'returns all books where group equals the id' do
@@ -46,7 +48,59 @@ describe Groupable do
 
     it 'can be empty' do
       library_2 = FactoryBot.create(:group)
-      assert Book.where_group(library_2.id).empty?
+      assert Book.where_group_id(library_2.id).empty?
+    end
+  end
+
+  describe '.where_group_name' do
+    # Need to call book_1, book_2 before the query, else they are not created.
+
+    it 'responds to where_group_name' do
+      assert Book.respond_to? :where_group_name
+    end
+
+    it 'returns all books where group equals the name' do
+      group = FactoryBot.create(:group, name: 'group1')
+      Book.create(group: group)
+      Book.create(group: group)
+
+      expected_ids = group.items.pluck(:id).sort
+      assert_equal expected_ids,
+                   Book.where_group_name('group1').pluck(:id).sort
+    end
+
+    it 'does not return other books' do
+      group_1 = FactoryBot.create(:group, name: 'group1')
+      group_2 = FactoryBot.create(:group, name: 'group2')
+      Book.create(group: group_1)
+      Book.create(group: group_1)
+      Book.create(group: group_2)
+      Book.create
+
+      expected_ids = group_2.items.pluck(:id).sort
+      assert_equal expected_ids,
+                   Book.where_group_name('group2').pluck(:id).sort
+    end
+
+    it 'does not return doubles if multiple groups have the same name' do
+      group_1 = FactoryBot.create(:group, name: 'group_name')
+      group_2 = FactoryBot.create(:group, name: 'group_name')
+      Book.create(group: group_1)
+      Book.create(group: group_1)
+      Book.create(group: group_2)
+      Book.create
+
+      group_1_item_ids = group_1.items.pluck(:id)
+      group_2_item_ids = group_2.items.pluck(:id)
+      expected_ids = (group_1_item_ids + group_2_item_ids).uniq.sort
+
+      assert_equal expected_ids,
+                   Book.where_group_name('group_name').pluck(:id).sort
+    end
+
+    it 'can be empty' do
+      library_2 = FactoryBot.create(:group, name: 'movies')
+      assert Book.where_group_id(library_2.name).empty?
     end
   end
 
